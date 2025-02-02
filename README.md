@@ -1,2 +1,2 @@
-Daily JS
-Practicу the JS everyDay
+# Daily JS
+# Practicу the JS everyDay
