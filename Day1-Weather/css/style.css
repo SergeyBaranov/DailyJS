@@ -1,0 +1,71 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Poppins', sans-serif;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: rgb(223, 223, 223);
+}
+
+.maincard {
+  width: 90%;
+  max-width: 470px;
+  border-radius: 32px;
+  background: linear-gradient(312deg, #587FED 0.42%, #6BBEF4 94.27%);
+  padding: 24px;
+  color: #fff;
+  text-align: center;
+  margin: 0 auto;
+}
+
+.citySearch {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+input {
+  flex: 1;
+  padding: 16px;
+  font-size: 16px ;
+  border: 0;
+  border-radius: 32px;
+}
+
+button {
+  width: 48px;
+  height: 48px;
+  border: 0;
+  border-radius: 24px;
+  background: #fff;
+  margin-left: 16px;
+}
+
+button img {
+  padding-top: 6px;
+}
+
+.weatherBox {
+  padding-top: 32px;
+  display: flex;
+  flex-direction: column;
+}
+
+.weatherIcon {
+  margin-bottom: 32px;
+  width: 220px;
+  height: auto;
+  margin: 0 auto;
+}
+
+h1 {
+  font-size: 120px;
+  font-weight: 100;
+}
+
+.weartherDetails__icon {
+  width: 100px;
+  height: auto;
+}
