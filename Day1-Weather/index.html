@@ -17,12 +17,52 @@
     </div>
     <div class="weatherBox">
       <img class="weatherIcon" src="img/rainy.png" alt="wearthe icon">
-      <h1 class="temperature">2°C</h1>
-      <h2 class="currentCity">Yoshkar-Ola</h2>
-      <div class="weartherDetails">
-        <img src="img/partly_cloudy.png" alt="wearther details icon" class="weartherDetails__icon">
+      <h1 class="temp">2°C</h1>
+      <h2 class="city">Yoshkar-Ola</h2>
+      <div class="moreOptions">
+        <div class="weartherDetails">
+          <img src="img/smallIcons/svg/Humidity.svg" alt="wearther details icon" class="weartherDetails__icon">
+          <div class="detailsIconValue">
+            <p class="humidity">50<span class="valueType">%</span></p>
+            <p class="valueDescription">Humidity</p>
+          </div>
+        </div>
+        <div class="weartherDetails">
+          <img src="img/smallIcons/svg/Wind.svg" alt="wearther details icon" class="weartherDetails__icon">
+          <div class="detailsIconValue">
+            <p class="wind">5<span class="valueType">km/h</span></p>
+            <p class="valueDescription">Wind Speed</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </body>
+<script>
+  
+const apiKey = "e1c6c8f5f82c37ad3d8841177063612b";
+const apiUrl = "https://api.openweathermap.org/data/2.5/weather?units=metric&q=";
+
+  const searchBox = document.querySelector(".citySearch input");
+  const searchBtn = document.querySelector(".citySearch button");
+
+  async function checkWeather(city) {
+    const response = await fetch(apiUrl + city + `&appid=${apiKey}`);
+    var data = await response.json();
+
+    console.log(data);
+
+    document.querySelector(".city").innerHTML = data.name;
+    document.querySelector(".temp").innerHTML = data.main.temp + "°C";
+    document.querySelector(".humidity").innerHTML = data.main.humidity + "%";
+    document.querySelector(".wind").innerHTML = data.wind.speed + "km/h";
+
+  }
+
+  searchBtn.addEventListener("click", ()=> {
+    checkWeather(searchBox.value);
+  })
+
+  checkWeather();
+</script>
 </html>

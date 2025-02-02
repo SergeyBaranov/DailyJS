@@ -34,6 +34,10 @@ input {
   border-radius: 32px;
 }
 
+input::placeholder {
+  color: #ccc;
+}
+
 button {
   width: 48px;
   height: 48px;
@@ -64,8 +68,42 @@ h1 {
   font-size: 120px;
   font-weight: 100;
 }
+.moreOptions {
+  display: flex;
+  gap: 32px;
+  align-self: center;
+  margin-top: 32px;
+  background: #ffffff14;
+  width: auto;
+  border-radius: 24px;
+  padding: 16px 24px;
+}
+
+.weartherDetails {
+  display: flex;
+  align-items:center;
+  gap: 8px;
+  color: #d2dcf9;
+  font-size: 28px;
+  font-weight: 300;
+  line-height: 1.4;
+}
+
+.valueType {
+  font-size: 16px;
+}
+
+.detailsIconValue {
+  text-align: left;
+}
+
+.valueDescription {
+  font-size: 16px;
+  padding: 0;
+  font-style: italic;
+}
 
 .weartherDetails__icon {
-  width: 100px;
+  width: 46px;
   height: auto;
 }
