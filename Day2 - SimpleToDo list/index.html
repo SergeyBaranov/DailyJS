@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
-  <script src="js/toDo.js"></script>
+  
   <title>To Do List</title>
 </head>
 <body>
@@ -16,14 +16,15 @@
       </div>
       <div class="row">
         <input type="text" id="input-text" placeholder="Добавьте напоминание">
-        <button>Добавить</button>
+        <button onclick="AddTask()">Добавить</button>
       </div>
       <ul id="taskList">
-        <li>Task 1</li>
+        <!-- <li class="checked">Task 1</li>
         <li>Task 2</li>
-        <li>Task 3</li>
+        <li>Task 3</li> -->
       </ul>
     </div>
   </div>
 </body>
+<script src="./js/toDo.js"></script>
 </html>
