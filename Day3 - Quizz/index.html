@@ -3,9 +3,26 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Document</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap" rel="stylesheet">
+  <title>Небольшой Quizz</title>
 </head>
 <body>
-  
+  <div class="quizzApp">
+    <h1>Викторина</h1>
+    <div class="quizzBox">
+      <h2 id="question">Вопрос</h2>
+      <div id="answerButtons">
+        <button class="btn">Ответ 1</button>
+        <button class="btn">Ответ 2</button>
+        <button class="btn">Ответ 3</button>
+        <button class="btn">Ответ 4</button>
+      </div>
+      <buttton id="nextBtn">Следующий вопрос</buttton>
+    </div>
+  </div>
+  <script src="js/quizz.js"></script>
 </body>
 </html>
