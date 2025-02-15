@@ -5,8 +5,21 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <link rel="stylesheet" href="css/style.css">
   <title>Генератор паролей</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet"> 
 </head>
 <body>
-  
+  <div class="boxWrapper">
+    <h1>Сгенерировать пароль </span></h1>
+    <div class="showPassword">
+      <input type="text" id="password" placeholder="Пароль">
+      <button class="copyPassword" onclick="copyPassword()">
+        <img class="copyIcon" src="img/copyIcon.svg" alt="copy icon">
+      </button>
+    </div>
+    <button onclick="generatePassword()" class="generatePassword" ><img src="img/shield.svg" alt="shield">Генерировать пароль</button>
+  </div>
 </body>
+<script src="js/generatePassword.js"></script>
 </html>
