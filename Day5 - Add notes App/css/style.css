@@ -1,0 +1,93 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Mulish", serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+}
+
+.notesBox {
+  margin: 0 auto;
+  width: 90%;
+  max-width: 640px;
+}
+
+.notesBoxHeader {
+  display: flex;
+  justify-content: space-between;
+  height: auto;
+}
+.mainTitle {
+  display: flex;
+  align-items: center;
+  color: #24235a;
+}
+
+.mainTitle img {
+  max-width: 40px;
+  padding-right: 8px;
+}
+
+.addNote {
+  padding: 4px 16px;
+  background-color: #df8c10;
+  border-radius: 8px;
+  border: 0;
+  color: #fff;
+  -webkit-box-shadow: 0px 5px 19px -6px #FFBF42; 
+  box-shadow: 0px 5px 19px -6px #FFBF42;
+  font-size: 16px;
+  cursor: pointer;
+}
+
+.addNote:hover {
+  -webkit-box-shadow: 0px 12px 19px -6px #FFBF42; 
+  box-shadow: 0px 12px 19px -6px #FFBF42;
+  transition: 0.5s;
+  background-color: #f3aa3c;
+}
+
+.notesInput {
+  background: #f5f5f5;
+  border-radius: 8px;
+  padding: 16px 16px 4px 16px;
+  margin-top: 24px;
+}
+
+.inputBox {
+  position: relative;
+  width: 100%;
+  max-width: 592px;
+  min-height: 60px;
+  background: #fff;
+  border-radius: 4px;
+  border: 0;
+  padding: 8px;
+  font-size: 16px;
+  margin-bottom: 16px;
+}
+
+.inputBox:focus-visible {
+  outline: none;
+}
+
+.inputBox img {
+  position: absolute;
+  right: 8px;
+  bottom: 8px;
+}
+
+.deleteIcon {
+  cursor: pointer;
+  padding: 4px;
+  border-radius: 12px;
+}
+
+.deleteIcon:hover {
+  background: #ff727228;
+}
