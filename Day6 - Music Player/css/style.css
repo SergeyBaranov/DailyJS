@@ -1,0 +1,65 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Atkinson Hyperlegible Mono", serif;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+  background: rgb(124,0,255);
+  background: linear-gradient(31deg, rgba(124,0,255,1) 0%, rgba(61,50,194,1) 100%);
+}
+
+.playerWrapper {
+  background: #fff;
+  border-radius: 16px;
+  padding: 24px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+  text-align: center;
+  width: 80%;
+  max-width: 500px;
+}
+
+.topBar {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 24px;
+  margin-bottom: 24px;
+  justify-content: space-between;
+}
+
+nav .iconTop {
+  border-radius: 50%;
+  width: 48px;
+  height: 48px;
+  background: #f1f1f1;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  display: flex;
+  line-height: 48px;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+
+.coverImage img {
+  width: 320px;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  margin: 0 auto; 
+}
+
+.songInfo {
+  margin-top: 24px;
+}
+
+.slider {
+  width: 80%;
+  margin-top: 24px;
+  height: 2px;
+  background: #f1f1f1;
+}
