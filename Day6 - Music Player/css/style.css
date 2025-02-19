@@ -57,9 +57,51 @@ nav .iconTop {
   margin-top: 24px;
 }
 
-.slider {
+#myRange {
+  appearance: none;
   width: 80%;
   margin-top: 24px;
-  height: 2px;
-  background: #f1f1f1;
+  margin-bottom: 24px;
+  height: 4px;
+  background: #a0a0a0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+#myRange::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  border: 4px solid rgb(21, 97, 116);
+  background: #ffffff;
+  box-shadow: 0 6px 8px rgba(12, 66, 80, 0.3);
+  cursor: pointer;
+}
+
+.controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 48px;
+  margin-top: 48px;
+  margin-bottom: 68px;
+}
+
+.iconControls {
+  border-radius: 50%;
+  width: 56px;
+  height: 56px;
+  background: #fffdfd;
+  display: flex;
+  line-height: 58px;
+  justify-content: center;
+  cursor: pointer;
+  align-items: center;
+}
+
+.iconControls:nth-child(2) {
+  background: #1f94b1;
+  color: #fff;
+  transform: scale(1.5);
 }
