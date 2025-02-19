@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Mono:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+  <title>Music Player</title>
+  <script src="https://kit.fontawesome.com/7d49f288d5.js" crossorigin="anonymous"></script>
+  
+</head>
+<body>
+  <div class="playerWrapper">
+    <nav class="topBar">
+      <div class="iconTop backIcon">
+        <i class="fas fa-arrow-left"></i>
+      </div>
+      <div class="iconTop menuIcon">
+        <i class="fas fa-bars"></i>
+      </div>
+    </nav>
+    <div class="coverImage">
+      <img src="img/cover.png" alt="album cover">
+    </div>
+    <div class="songInfo">
+      <h1>ブルーバード</h1>
+      <p>By: いきものがかり</p>
+    </div>
+    <div class="musicProgressBar">
+      <input type="range" min="0" max="100" value="0" class="slider" id="myRange">
+    </div>
+    <div class="controls">
+      <div class="iconControls">
+        <i class="fas fa-backward"></i>
+      </div>
+      <div class="iconControls" onclick="playPause()">
+        <i class="fas fa-play" id="controlsIcon"></i>
+      </div>
+      <div class="iconControls">
+        <i class="fas fa-forward"></i>
+      </div>
+    </div>
+    <div class="mediaControls">
+      <audio id="song" src="media/blueBird.mp3" type="audio/mpeg"></audio>
+      </audio>
+    </div>
+  </div>
+</body>
+<script src="js/player.js"></script>
+</html>
