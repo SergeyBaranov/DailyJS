@@ -7,4 +7,4 @@
 # Day 4 - Password Randomizer
 # Day 5 - Add notes app
 # Day 6 - Music Player
-
+# Day 7 - Advanced Music Player
