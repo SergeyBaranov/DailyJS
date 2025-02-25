@@ -16,6 +16,7 @@
       <img class="iconsPlayer" src="img/icons/menuIcon.svg" alt="menu icons">
     </div>
     <div class="albumcover">
+      <img src="img/albumCovers/cover-1.jpg" alt="">
     </div>
     <div class="songInfo">
       <div class="songTitle"><p>ブルーバード</p></div>
@@ -23,7 +24,30 @@
         <p>いきものがかり</p>
       </div>
     </div>
+    <div class="audioInfo">
+      <div class="songTimer">
+        <span class="currentTime">00:00</span>
+        <span class="maxDuration">00:00</span>
+      </div>
+      <div class="progressBarArea">
+        <div class="progressBar">
+          <audio id="mainAudio" src="media/blueBird.mp3"></audio>
+        </div>
+      </div>
+    </div>
+    <div class="mediaControls">
+      <div class="mediaIcon previousSong">
+        <img src="img/icons/prev.svg" alt="previous song">
+      </div>
+      <div onclick="playMusic()" class="mediaIcon playSong">
+        <img src="img/icons/playIcon.svg" alt="play song">
+      </div>
+      <div class="mediaIcon nextSong">
+        <img src="img/icons/next.svg" alt="next song">
+      </div>
+    </div>
   </div>
-  
+  <script src="js/musicList.js"></script>
+  <script src="js/player.js"></script>
 </body>
 </html>
