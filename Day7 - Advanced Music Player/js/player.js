@@ -1,13 +1,13 @@
 // import { allMusic } from "./musicList";
 
 const playerWrapper = document.querySelector(".playerWrapper"); // создаем переменную для всего плеера
-const coverImg = playerWrapper.querySelector("coverImg"); // создаем переменную для работы с обложкой
+const coverImg = playerWrapper.querySelector(".mainCover"); // создаем переменную для работы с обложкой
 const songTitle = playerWrapper.querySelector(".songTitle"); //переменная для работы с наименованием песни 
 const songAuthor = playerWrapper.querySelector(".songAuthor"); //переменная для работы с исполнителем песни
 const playPauseBtn = playerWrapper.querySelector(".playSong"); // переменная для работы со стартом и паузой 
 const prevBtn = playerWrapper.querySelector("#previousSong"); //переменная для предыдущей песни
 const nextBtn = playerWrapper.querySelector("#nextSong"); //переменная для следующей песни
-const mainAudio = document.querySelector("#mainAudio"); //переменная для контента
+const mainAudio = document.getElementById("mainAudio"); //переменная для контента
 const progressBarArea = playerWrapper.querySelector(".progressBarArea"); //переменная для области прокрутки аудиоконтента
 const progressBar = progressBarArea.querySelector(".progressBar");//переменная для прогрессбара
 
@@ -25,32 +25,50 @@ function loadMusic(indexNumber){
   mainAudio.src = `media/${allMusic[indexNumber - 1].src}.mp3`
 }
 
-function playMusic() {
-  playerWrapper.classList.add("paused");
-  coverImg.classList.add('rotate');
-  playPauseBtn.innerHTML = `<img src="img/icons/playIcon.svg" alt="play song">`;
-  mainAudio.play();
+
+function playMusic() { // создаем функцию playPause
+  if(playPauseBtn.classList.contains('playSong')) { 
+    coverImg.classList.add('rotate');
+    playPauseBtn.classList.remove('playSong');
+    playPauseBtn.classList.add('pauseSong');   
+    playPauseBtn.innerHTML = '<img src="img/icons/pauseIcon.svg" alt="play song">';
+    mainAudio.play(); // запускаем аудио
+  } else { // иначе
+    playPauseBtn.classList.remove('pauseSong'); 
+    coverImg.classList.remove('rotate');
+    playPauseBtn.classList.add('playSong');
+    playPauseBtn.innerHTML = '<img src="img/icons/playIcon.svg" alt="play song">';
+    mainAudio.pause(); // останавливаем аудио
+  }
 }
 
-function pauseMusic() {
-  playerWrapper.classList.remove("paused");
-  coverImg.classList.remove('rotate');
-  playPauseBtn.innerHTML = `<img src="img/icons/pauseIcon.svg" alt="pause song">`;
-  mainAudio.pause();
-}
+// function playMusic() {
+//   coverImg.classList.add('rotate');  
+//   playPauseBtn.classList.add("pauseSong");
+//   playPauseBtn.innerHTML = '<img src="img/icons/pauseIcon.svg" alt="play song">';
+//   mainAudio.play();
+// }
+
+// function pauseMusic() {
+//   playPauseBtn.classList.add("playSong");
+//   playPauseBtn.classList.remove('pauseSong');
+//   coverImg.classList.remove('rotate');
+//   playPauseBtn.innerHTML = '<img src="img/icons/playIcon.svg" alt="pause song">';
+//   mainAudio.pause();
+// }
 
 function prevSong() {
   musicIndex--;
-  musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex;
+  musicIndex = musicIndex < 1 ? allMusic.length : musicIndex;
   loadMusic(musicIndex);
-  pauseMusic();
+  playMusic();
 }
 
 function nextSong() {
   musicIndex++;
   musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
   loadMusic(musicIndex);
-  pauseMusic();
+  playMusic();
 }
 
 playPauseBtn.addEventListener("click", () => {
@@ -76,8 +94,13 @@ mainAudio.addEventListener("timeupdate", (e) => {
   let musicCurrentTime = playerWrapper.querySelector(".currentTime"); // Assuming formatTime is a function to format the time
   let musicDuration = playerWrapper.querySelector(".maxDuration");
 
-  // Update the UI with the current time and duration
-  currentTimeElement.innerText = musicCurrentTime;
-  durationElement.innerText = musicDuration;
-
+  mainAudio.addEventListener("loadedData", () => {
+    let mainAudioDUration = mainAudio.duration;
+    let totalMin = Math.floor(mainAudioDUration / 60);
+    let totalSec = Math.floor(mainAudioDUration % 60);
+    if(totalSec < 10) {
+      totalSec = `0${totalSec}`;
+    }
+    musicDuration.innerText = `${totalMin}:${totalSec}`;
+  })
 })
