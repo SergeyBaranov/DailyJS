@@ -1,14 +1,14 @@
 // Load Music
 
 const playerWrapper = document.querySelector(".playerWrapper"); // создаем переменную для всего плеера
-const coverImg = document.querySelector(".mainCover"); // создаем переменную для работы с обложкой
-const songTitle = document.querySelector(".songTitle"); //переменная для работы с наименованием песни 
-const songAuthor = document.querySelector(".songAuthor"); //переменная для работы с исполнителем песни
-const playPauseBtn = document.querySelector(".playSong"); // переменная для работы со стартом и паузой 
-const prevBtn = document.querySelector("#previousSong"); //переменная для предыдущей песни
-const nextBtn = document.querySelector("#nextSong"); //переменная для следующей песни
+const coverImg = playerWrapper.querySelector(".mainCover"); // создаем переменную для работы с обложкой
+const songTitle = playerWrapper.querySelector(".songTitle"); //переменная для работы с наименованием песни 
+const songAuthor = playerWrapper.querySelector(".songAuthor"); //переменная для работы с исполнителем песни
+const playPauseBtn = playerWrapper.querySelector(".playSong"); // переменная для работы со стартом и паузой 
+const prevBtn = playerWrapper.querySelector("#previousSong"); //переменная для предыдущей песни
+const nextBtn = playerWrapper.querySelector("#nextSong"); //переменная для следующей песни
 const mainAudio = document.getElementById("mainAudio"); //переменная для контента
-const progressBarArea = document.querySelector(".progressBarArea"); //переменная для области прокрутки аудиоконтента
+const progressBarArea = playerWrapper.querySelector(".progressBarArea"); //переменная для области прокрутки аудиоконтента
 const progressBar = progressBarArea.querySelector(".progressBar");//переменная для прогрессбара
 
 let musicIndex = Math.floor((Math.random() * allMusic.length) + 1); //индекс песни
@@ -27,17 +27,19 @@ function loadMusic(indexNumber){ //функция для загрузки пес
 
 function playMusic() {
   coverImg.classList.add('rotate');  
-  playPauseBtn.classList.add("pauseSong");
+  playPauseBtn.classList.add('pauseSong');
   playPauseBtn.innerHTML = '<img src="img/icons/pauseIcon.svg" alt="pause song">';
   mainAudio.play();
 }
 
 function pauseMusic() {
   playPauseBtn.classList.remove("pauseSong");
+  playPauseBtn.classList.add('playSong');
   coverImg.classList.remove('rotate');
   playPauseBtn.innerHTML = '<img src="img/icons/playIcon.svg" alt="play song">';
   mainAudio.pause();
 }
+
 
 function prevSong() { //функция для предыдущей песни  
   musicIndex--; //уменьшаем индекс на 1
@@ -54,9 +56,11 @@ function nextSong() {
 }
 
 playPauseBtn.addEventListener("click", () => { //когда нажимаем на кнопку старт/пауза
-  const isMusicPlay = playerWrapper.classList.contains("pauseSong"); //проверяем, играет ли музыка
+  const isMusicPlay = playerWrapper.classList.contains(" paused"); //проверяем, играет ли музыка
   isMusicPlay ? pauseMusic() : playMusic();//если музыка играет, то пауза, если нет, то играем
 });
+
+
 
 prevBtn.addEventListener("click", () => { //когда нажимаем на кнопку предыдущей песни
   prevSong();
@@ -72,10 +76,10 @@ mainAudio.addEventListener("timeupdate", (e) => { //когда аудио обн
   let progressWidth = (currentTime / duration) * 100; //выясняем ширину прогрессбара в процентах на основе текущего времени и длительности песни
   progressBar.style.width = `${progressWidth}%`; //присваиваем ширину прогрессбару
 
-  let musicCurrentTime = playerWrapper.querySelector(".currentTime"); //переменная для текущего времени
-  let musicDuration = playerWrapper.querySelector(".maxDuration"); //переменная для длительности песни
+  let musicCurrentTime = document.querySelector(".currentTime"), //переменная для текущего времени
+  musicDuration = document.querySelector(".maxDuration"); //переменная для длительности песни
 
-  mainAudio.addEventListener("loadedDate", () => { //добавляем событие, когда аудио загружено
+  mainAudio.addEventListener("loadeddata", () => { //добавляем событие, когда аудио загружено
     let mainAudioDuration = mainAudio.duration; //длительность песни
     let totalMin = Math.floor(mainAudioDuration / 60); //минуты
     let totalSec = Math.floor(mainAudioDuration % 60);//  секунды
@@ -91,7 +95,7 @@ mainAudio.addEventListener("timeupdate", (e) => { //когда аудио обн
     currentSec = `0${currentSec}`; // добавляем 0
   }
   musicCurrentTime.innerText = `${currentMin}:${currentSec}`; // выводим текущее время
-})
+});
 
 progressBarArea.addEventListener("click", (e) => { //когда кликаем на область прогрессбара
   let progressWidth = progressBarArea.clientWidth; //ширина прогрессбара
@@ -99,9 +103,9 @@ progressBarArea.addEventListener("click", (e) => { //когда кликаем �
   let songDuration = mainAudio.duration; //длительность песни
   mainAudio.currentTime = (clickedOffSetX / progressWidth) * songDuration; //текущее время которое мы выбрали
   playMusic();
-} )
+} );
 
 mainAudio.addEventListener("ended", () => { //когда песня закончилась
   nextSong(); //переходим к следующей песне
-})  
+});
 
