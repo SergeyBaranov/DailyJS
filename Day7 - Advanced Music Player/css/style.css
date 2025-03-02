@@ -52,10 +52,9 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   height: 390px;
   border-radius: 24px;
-  background: #292929;
+  /* background: #292929; */
   border-radius: 50%;
   background-size: cover;
-  
 }
 
 .songInfo {
@@ -131,6 +130,14 @@ h1, h2, h3, h4, h5, h6 {
   margin-top: 32px;
   margin-bottom: 32px;
   cursor: pointer;
+}
+
+.mediaIcon {
+  background: none;
+  padding: 16px;
+  border-radius: 50%;
+  margin: 0 16px;
+  border: none;
 }
 
 .playSong {
