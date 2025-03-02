@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+  <title>Расширенный музыкальный плеер</title>
+</head>
+<body>
+  <div class="container playerWrapper">
+    <div class="topbar">
+      <h1 class="title">Music</h1>
+      <img class="iconsPlayer" src="img/icons/menuIcon.svg" alt="menu icons">
+    </div>
+    <div class="albumcover">
+      <img class="mainCover" src="img/albumCovers/cover-1.jpg" alt="">
+    </div>
+    <div class="songInfo">
+      <div><p class="songTitle">ブルーバード</p></div>
+      <div>
+        <p class="songAuthor">いきものがかり</p>
+      </div>
+    </div>
+    <div class="audioInfo">
+      <div class="songTimer">
+        <span class="currentTime">00:00</span>
+        <span class="maxDuration">00:00</span>
+      </div>
+      <div class="progressBarArea">
+        <div class="progressBar">
+          <audio id="mainAudio" src="media/blueBird.mp3"></audio>
+        </div>
+      </div>
+    </div>
+    <div class="mediaControls">
+      <button onclick="prevSong()"  class="mediaIcon previousSong" id="previousSong">
+        <img  src="img/icons/prev.svg" alt="previous song">
+      </button>
+      <button onclick="playMusic()" class="mediaIcon playSong">
+        <img  src="img/icons/playIcon.svg" alt="play song">
+      </button>
+      <button onclick="nextSong()"  class="mediaIcon nextSong" id="nextSong">
+        <img  src="img/icons/next.svg" alt="next song">
+      </button>
+    </div>
+  </div>
+  <script src="js/musicList.js"></script>
+  <script src="js/player.js"></script>
+</body>
+</html>

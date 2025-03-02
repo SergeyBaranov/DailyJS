@@ -1,0 +1,170 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Outfit", serif;
+}
+
+body {
+  background: #8DB90D;
+  margin: 0;
+  height: 100vh;
+  align-items: center;
+  display: flex;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: "Outfit", serif;
+  font-weight: 400;
+} 
+
+.playerWrapper {
+  background: #111111;
+  width: 80%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 16px 32px;
+  border-radius: 32px;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 16px;
+  margin-bottom: 16px;
+  color: #fff;
+}
+
+.iconsPlayer {
+  background: #292929;
+  padding: 18px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+.iconsPlayer:hover {
+  background: #333;
+  transition: 0.5s;
+}
+
+.albumcover img {
+  margin: 0 auto;
+  width: 100%;
+  height: 390px;
+  border-radius: 24px;
+  /* background: #292929; */
+  border-radius: 50%;
+  background-size: cover;
+}
+
+.songInfo {
+  text-align: center;
+  margin-top: 48px;
+}
+
+.songTitle {
+  font-size: 28px;
+  margin-top: 16px;
+  font-weight: 600;
+  color: #fff;
+}
+
+.songAuthor {
+  font-size: 18px;
+  margin-top: 8px;
+  color: #fff;
+}
+
+.audioInfo {
+  margin: 32px 0;
+}
+.songTimer {
+  color: #fff;
+}
+
+.songTimer {
+  font-size: 12px;
+  display: flex;
+  justify-content: space-between;
+  color: #6d6d6d;
+}
+
+.progressBarArea {
+  height: 6px;
+  width: 100%;
+  margin-top: 16px;
+  border-radius:3px;
+  background: #313131;
+  cursor: pointer;
+}
+
+.progressBar {
+  height: inherit;
+  width: 0%;
+  position: relative;
+  border-radius: inherit;
+  background: #8e21ce;
+}
+
+.progressBar::before {
+  content: "";
+  position: absolute;
+  background: #fff;
+  border-radius: 50%;
+  top: 50%;
+  right: -24px;
+  z-index: 2;
+  width: 28px;
+  height: 28px;
+  outline: none;
+  border: none;
+  pointer-events: none;
+  transform: translateY(-50%);
+  transition: all 0.5s;
+}
+
+.mediaControls {
+  display: flex;
+  align-items:center;
+  justify-content: center;
+  margin-top: 32px;
+  margin-bottom: 32px;
+  cursor: pointer;
+}
+
+.mediaIcon {
+  background: none;
+  padding: 16px;
+  border-radius: 50%;
+  margin: 0 16px;
+  border: none;
+}
+
+.playSong {
+  padding: 16px 18px;
+  background: #ffffff34;
+  border-radius: 50%;
+  margin: 0 16px;
+}
+
+.pauseSong {
+  padding: 16px 18px;
+  background: #07ddc1;
+  border-radius: 50%;
+  margin: 0 16px;
+  cursor: pointer;
+}
+
+.rotate {
+  animation: rotation 32s infinite linear;
+  transform-origin: center;
+}
+
+@keyframes rotation {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(359deg);
+  }
+}
