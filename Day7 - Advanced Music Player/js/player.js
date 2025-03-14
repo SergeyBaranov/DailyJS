@@ -7,7 +7,7 @@ const songAuthor = playerWrapper.querySelector(".songAuthor"); //перемен�
 const playPauseBtn = playerWrapper.querySelector(".playSong"); // переменная для работы со стартом и паузой 
 const prevBtn = playerWrapper.querySelector("#previousSong"); //переменная для предыдущей песни
 const nextBtn = playerWrapper.querySelector("#nextSong"); //переменная для следующей песни
-const mainAudio = document.getElementById("mainAudio"); //переменная для контента
+const mainAudio = playerWrapper.querySelector("#mainAudio"); //переменная для контента
 const progressBarArea = playerWrapper.querySelector(".progressBarArea"); //переменная для области прокрутки аудиоконтента
 const progressBar = progressBarArea.querySelector(".progressBar");//переменная для прогрессбара
 
@@ -26,15 +26,14 @@ function loadMusic(indexNumber){ //функция для загрузки пес
 }
 
 function playMusic() {
-  coverImg.classList.add('rotate');  
+  coverImg.classList.add('rotate');
   playPauseBtn.classList.add('pauseSong');
-  playPauseBtn.innerHTML = '<img src="img/icons/pauseIcon.svg" alt="pause song">';
+  playPauseBtn.innerHTML = '<img src=\'img/icons/pauseIcon.svg\' alt=\'pause song\'>';
   mainAudio.play();
 }
 
 function pauseMusic() {
   playPauseBtn.classList.remove("pauseSong");
-  playPauseBtn.classList.add('playSong');
   coverImg.classList.remove('rotate');
   playPauseBtn.innerHTML = '<img src="img/icons/playIcon.svg" alt="play song">';
   mainAudio.pause();
@@ -44,19 +43,19 @@ function pauseMusic() {
 function prevSong() { //функция для предыдущей песни  
   musicIndex--; //уменьшаем индекс на 1
   musicIndex < 1 ? musicIndex = allMusic.length : musicIndex = musicIndex; //если индекс меньше 1, то индекс равен длине массива
-  loadMusic(musicIndex); //загружаем песню
+  musicIndex = musicIndex < 1 ? allMusic.length : musicIndex; //если индекс меньше 1, то индекс равен длине массива
   playMusic(); //запускаем песню
 }
 
 function nextSong() {
   musicIndex++;
-  musicIndex > allMusic.length ? musicIndex = 1 : musicIndex = musicIndex;
+  musicIndex = musicIndex > allMusic.length ? 1 : musicIndex;
   loadMusic(musicIndex);
   playMusic();
 }
 
 playPauseBtn.addEventListener("click", () => { //когда нажимаем на кнопку старт/пауза
-  const isMusicPlay = playerWrapper.classList.contains(" paused"); //проверяем, играет ли музыка
+  const isMusicPlay = playerWrapper.classList.contains('paused'); //проверяем, играет ли музыка
   isMusicPlay ? pauseMusic() : playMusic();//если музыка играет, то пауза, если нет, то играем
 });
 
