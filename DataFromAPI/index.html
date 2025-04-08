@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Обработчик данных пользователей</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Обработчик данных пользователей</h1>
+    <button id="processButton">Обработать данные пользователей</button>
+    <div id="output"></div>
+    <script>
+       document.getElementById("processButton").addEventListener("click", async function() {
+            try {
+                let response = await fetch("https://jsonplaceholder.typicode.com/users"); // API-запрос через данный url
+                let data = await response.json(); // Преобразуем в JSON
+                console.log(data); // Выводим в консоль для проверки? приходит ли массив
+                // Выводим данные в HTML
+                let output = document.getElementById("output");
+                data.forEach(user => {
+                    let userinfo = document.createElement("userInfo");
+                    userinfo.innerHTML = `
+                        <h3>${user.name}</h3>
+                        <div class="userInfo">
+                            <h4>Личная информация</h4>
+                            <div class="infoData">
+                                <p><strong>userID:<br></strong> ${user.id}</p>
+                                <p><strong>username:<br></strong> ${user.username}</p>
+                                <p><strong>email:<br></strong> ${user.email}</p>
+                                <p><strong>phone number:<br></strong> ${user.phone}</p>
+                                <p><strong>website:<br></strong> <a href="#">${user.website}</a></p>
+                            </div>
+                            <h4>Адрес</h4>
+                            <div class="infoData">
+                                <p><strong>city:<br></strong> ${user.address.city}</p>
+                                <p><strong>geo:<br></strong> ${user.address.geo.lat} <br>${user.address.geo.lng}</p>
+                                <p><strong>street:<br></strong> ${user.address.street}</p>
+                                <p><strong>suit:<br></strong> ${user.address.suite}</p>
+                                <p><strong>zipcode:<br></strong> ${user.address.zipcode}</p>
+                            </div>
+                            <h4>Компания</h4>
+                            <div class="infoData">
+                                <p><strong>name:<br></strong> ${user.company.name}</p>
+                                <p><strong>bs:<br></strong> ${user.company.bs}</p>
+                                <p><strong>catchPhrase:<br></strong> ${user.company.catchPhrase}</p>
+                            </div>
+                        </div>
+                        `;
+                    output.appendChild(userinfo);
+                });
+                
+            } catch (error) {
+                console.error("Ошибка запроса:", error);
+            }
+        });
+    </script>
+</body>
+</html>
