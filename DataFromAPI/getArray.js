@@ -1,32 +1,3 @@
- //Создайте асинхронную функцию processUserData, которая:
-       // Получает данные пользователей с 'https://jsonplaceholder.typicode.com/users'
-
-      //  document.getElementById("processButton").addEventListener("click", async function() {
-      //   try {
-      //     const response = await fetch("https://jsonplaceholder.typicode.com/users"); // API-запрос через данный url
-      //     const data = response.map(user => user.json()); // Преобразуем в JSON
-      //     console.log(data); // Выводим в консоль для проверки? приходит ли массив
-      //     return data; // Возвращаем данные
-
-      //   } catch (error) {
-      //     alert("Ошибка запроса: Что-то пошло не так", error); // Выводим ошибку в alert
-      //   }
-      // });
-
-// async function processUserData() {
-//   try {
-//     const response = await fetch("https://jsonplaceholder.typicode.com/users"); // API-запрос через данный url
-//     if (!response.ok) { 
-//       return alert("Ошибка запроса: Что-то пошло не так"); // Если ошибка, выводим в alert
-//     }
-//     const data = await response.json(); // Преобразуем в JSON
-//     return data;
-// } catch (error) {
-//     alert("Ошибка запроса: Что-то пошло не так", error); // Выводим ошибку в alert
-//   }
-// }
-
-
 // Создаем счетчик клика кнопки
 let createCounter = () => {
     let count = 0;
@@ -35,7 +6,7 @@ let createCounter = () => {
 //добавляем переменную для счетчика кликов по кнопке
 let buttonClickCounter = createCounter();
 
-// Функция для извлечения доменя от email
+// Функция для извлечения домена от email
 let extractDomain = (...emails) => {
     return emails.map(email => {
         if (typeof email !== 'string') return 'проблема с доменом';
