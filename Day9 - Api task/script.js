@@ -29,6 +29,7 @@ const handleShowAll = async () => {
   showOutput(formatPosts(posts));
 };
 
+
 document.getElementById('showAll').addEventListener('click', handleShowAll);
 
 //добавляем функцию на кнопку чтобы показать длинные посты
@@ -39,5 +40,5 @@ const ShowLongestPosts = async () => {
       .slice(0, 5)
   ));
 };
-
+//добавляем обработчки событий на кнопку
 document.getElementById('showLongest').addEventListener('click', ShowLongestPosts);
