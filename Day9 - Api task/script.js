@@ -1,0 +1,43 @@
+
+
+//загружаем данные с сервера и проверяем на наличие ошибок
+const fetchPosts = async () => {
+  try {
+    const response = await fetch('https://jsonplaceholder.typicode.com/posts');
+    if (!response.ok) throw new Error('Ошибка при загрузке постов');
+    return await response.json();
+  } catch (error) {
+    showOutput(`❌ Ошибка: ${error.message}`);
+    return [];
+  }
+};
+
+//выводим полученные данные в output
+const outputData = document.getElementById('output');
+const showOutput = (html) => {
+  outputData.innerHTML = html;
+};
+
+const formatPosts = (posts) =>
+  posts.map(({ id, title, body }) => 
+    `<b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`
+  ).join('');
+
+//добавляем обработчик событий на кнопкуц показать все
+const handleShowAll = async () => {
+  const posts = await fetchPosts();
+  showOutput(formatPosts(posts));
+};
+
+document.getElementById('showAll').addEventListener('click', handleShowAll);
+
+//добавляем функцию на кнопку чтобы показать длинные посты
+const ShowLongestPosts = async () => {
+  showOutput(formatPosts(
+    (await fetchPosts())
+      .sort((a, b) => b.body.length - a.body.length)
+      .slice(0, 5)
+  ));
+};
+
+document.getElementById('showLongest').addEventListener('click', ShowLongestPosts);
