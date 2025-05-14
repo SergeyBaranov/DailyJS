@@ -20,10 +20,12 @@ const showOutput = (resultHTML) => {
   outputData.innerHTML = resultHTML;
 };
 
-const formatPosts = (posts) =>
-  posts.map(({ id, title, body }) => 
-    `<b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`
-  ).join('');
+const formatPosts = (posts) => {
+  return posts.map((post) => {
+    const { id, title, body } = post;
+    return `<b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`;
+  }).join('');
+};
 
 //добавляем обработчик событий на кнопкуц показать все
 const handleShowAll = async () => {
