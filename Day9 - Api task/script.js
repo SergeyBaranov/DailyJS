@@ -38,8 +38,8 @@ document.getElementById('showAll').addEventListener('click', handleShowAll);
 const ShowLongestPosts = async () => {
   showOutput(formatPosts(
     (await fetchPosts())
-      .sort((a, b) => b.body.length - a.body.length)
-      .slice(0, 5)
+      .sort((a, b) => b.body.length - a.body.length) // сортируем от большего к меньшему
+      .slice(0, 5) // показываем только первые пять
   ));
 };
 //добавляем обработчки событий на кнопку
