@@ -21,10 +21,10 @@ const showOutput = (resultHTML) => {
 };
 
 const formatPosts = (posts) => {
-  return posts.map((post) => {
+  return posts.map((post) => { //перебираем массив полученный из json
     const { id, title, body } = post;
     return `<b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`;
-  }).join('');
+  }).join(''); //join - объединяем массив в одну строку
 };
 
 //добавляем обработчик событий на кнопкуц показать все
