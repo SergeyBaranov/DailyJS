@@ -14,8 +14,8 @@ const fetchPosts = async () => {
 
 //выводим полученные данные в output
 const outputData = document.getElementById('output');
-const showOutput = (html) => {
-  outputData.innerHTML = html;
+const showOutput = (resultHTML) => {
+  outputData.innerHTML = resultHTML;
 };
 
 const formatPosts = (posts) =>
