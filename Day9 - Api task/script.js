@@ -9,7 +9,7 @@ const fetchPosts = async () => {
     }
     return await response.json();
   } catch (error) {
-    showOutput(`❌ Ошибка: ${error.message}`);
+    alert("Ошибка запроса: Что-то пошло не так", error);
     return [];
   }
 };
