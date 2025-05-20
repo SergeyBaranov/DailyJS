@@ -18,12 +18,14 @@ const fetchPosts = async () => {
 const outputData = document.getElementById('output');
 const showOutput = (resultHTML) => {
   outputData.innerHTML = resultHTML;
+  console.log(outputData);
 };
+
 
 const formatPosts = (posts) => {
   return posts.map((post) => { //перебираем массив полученный из json
-    const { id, title, body } = post;
-    return `<b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`;
+    const { userId, id, title, body } = post;
+    return `<b>${userId}</b><b>${id}</b>: <strong>${title}</strong><br>${body}<br><br>`;
   }).join(''); //join - объединяем массив в одну строку
 };
 
@@ -46,3 +48,31 @@ const ShowLongestPosts = async () => {
 };
 //добавляем обработчки событий на кнопку
 document.getElementById('showLongest').addEventListener('click', ShowLongestPosts);
+
+//делаем статистику по  общему количеству постов
+//1 - создаем общую переменную которая будет отвечать за статистику
+const allPosts = (posts) => {
+  const allPostsNumber = posts.length; // все посты
+  const averageTitleLength = Math.round(posts.map(a => a.title.length).reduce((a, b) => a + b) / allPostsNumber); // вычисляем среднюю длину заголовка
+  const uniqUserID = new Set(posts.map(a => a.userID)).size; // вычисляем количество уникальных пользователей
+  const uniqwords = new Set(posts.map(a =>a.title) 
+    .join(' ') //объединяем в одну строку все слова в заголовках
+    .toLowerCase() // приводим к нижнему регистру
+    .split(/\W+/) // разбиваем строку на массив значений
+    .filter(Boolean) // колчиство уникальных слов в заголовке
+);
+
+
+  //выводим в html
+  outputData.innerHTML = `<p>Всего постов: ${allPostsNumber}</p>
+  <p>Средняя длина заголовков: ${averageTitleLength}</p>
+  <p>Количество уникальных пользователей: ${uniqUserID}</p>
+  <p>Уникальные слова: ${uniqwords}</p>`;
+
+};
+
+//делаем событие на кнопку для вывода статистики
+document.getElementById('showStats').addEventListener('click', async () => {
+  const posts = await fetchPosts();
+  allPosts(posts);
+});
