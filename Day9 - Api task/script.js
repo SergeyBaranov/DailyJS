@@ -66,10 +66,10 @@ console.log(uniqwords);
 
 
   //выводим в html
-  outputData.innerHTML = `<p>Всего постов: ${allPostsNumber}</p>
-  <p>Средняя длина заголовков: ${averageTitleLength}</p>
-  <p>Количество уникальных пользователей: ${uniqUserID}</p>
-  <p>Уникальные слова: ${[...uniqwords].join(', ')}</p>`;
+  outputData.innerHTML = `<p><b>Всего постов:</b><br> ${allPostsNumber}</p>
+  <p><b>Средняя длина заголовков:</b><br>  ${averageTitleLength}</p>
+  <p><b>Количество уникальных пользователей:</b> <br> ${uniqUserID}</p>
+  <p><b>Уникальные слова:</b> <br> ${[...uniqwords].join(', ')}</p>`;
 
 };
 
