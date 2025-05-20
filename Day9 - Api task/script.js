@@ -55,19 +55,21 @@ const allPosts = (posts) => {
   const allPostsNumber = posts.length; // все посты
   const averageTitleLength = Math.round(posts.map(a => a.title.length).reduce((a, b) => a + b) / allPostsNumber); // вычисляем среднюю длину заголовка
   const uniqUserID = new Set(posts.map(a => a.userID)).size; // вычисляем количество уникальных пользователей
-  const uniqwords = new Set(posts.map(a =>a.title) 
+  const uniqwords = new Set(posts.map(b => b.title) 
     .join(' ') //объединяем в одну строку все слова в заголовках
     .toLowerCase() // приводим к нижнему регистру
     .split(/\W+/) // разбиваем строку на массив значений
-    .filter(Boolean) // колчиство уникальных слов в заголовке
+    .filter(Boolean) // убираем лишнее
 );
+
+console.log(uniqwords);
 
 
   //выводим в html
   outputData.innerHTML = `<p>Всего постов: ${allPostsNumber}</p>
   <p>Средняя длина заголовков: ${averageTitleLength}</p>
   <p>Количество уникальных пользователей: ${uniqUserID}</p>
-  <p>Уникальные слова: ${uniqwords}</p>`;
+  <p>Уникальные слова: ${[...uniqwords].join(', ')}</p>`;
 
 };
 
