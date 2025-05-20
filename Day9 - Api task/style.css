@@ -1,0 +1,50 @@
+body {
+  background-color: #e7e7e7;
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: #fff;
+  width: 600px;
+  max-width: 600px;
+  margin: 0 auto;
+  border-radius: 16px;
+  padding: 24px;
+  height: auto;
+}
+
+.buttonsLine {
+  display: flex;
+  gap: 24px
+}
+
+
+h1 {
+  font-size: 24px;
+  color: #333;
+  font-family: Arial, Helvetica, sans-serif;
+}
+button {
+  color: #fff;
+  border: 0;
+  border-radius: 4px;
+  padding: 12px;
+}
+
+#showAll {
+  background-color: #2584dd;
+}
+
+#showLongest {
+  background-color: #39a150;
+}
+
+#showStats {
+  background-color: #eca712;
+}
+
+#output {
+  padding-top: 32px;
+}
