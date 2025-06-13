@@ -62,7 +62,7 @@ const allPosts = (posts) => {
     .filter(Boolean) // убираем лишнее
 );
 
-console.log(uniqwords);
+
 
 
   //выводим в html
@@ -77,4 +77,4 @@ console.log(uniqwords);
 document.getElementById('showStats').addEventListener('click', async () => {
   const posts = await fetchPosts();
   allPosts(posts);
-});
+}); 
