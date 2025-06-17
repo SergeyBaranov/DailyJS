@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Randomizer</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="container">
+    <h1>Генератор имен</h1>
+    <!-- диа для выбора что необходио генерировать -->
+    <div class="mainSelect">
+    <!-- создаем генератор имен -->
+      <div class="nameContentPreData">
+        <div class="countHowMany">
+          <label for="count">Выберите количество (1-20)</label>
+          <input type="number" id="count" name="count" min="1" max="20" value="1">
+        </div>
+        <div class="selectToGenerate">
+          <label for="name"><input type="checkbox" name="name" id="name">Имя</label>
+          <label for="address"><input type="checkbox" name="address" id="address">Адрес</label>
+          <label for="email"><input type="checkbox" name="email" id="email">Email</label>
+          <label for="job"><input type="checkbox" name="job" id="job">Место работы</label>
+        </div>
+        <button onclick="generateContent()">Сгенерировать</button>
+      </div>
+    <div class="mainResults">
+      <div class="mainResults__Content">
+        <div id="tableHeader"></div>
+        <div id="results"></div>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
+</body>
+</html>
