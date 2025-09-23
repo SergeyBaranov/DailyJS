@@ -24,9 +24,16 @@ const apiKey = '4b915153cc4942e5bf4b3afe21791205';
       tableHeader.innerHTML = '';
 
       if (!userName && !userJob && !userAddress && !userEmail) {
-        resultsToView.innerHTML = '<div class="warning">Выберите из списка для генерации контента</div>';
+        resultsToView.innerHTML = '<div class="warning">Выберите из списка для генерации контента</div>';   c
         return;
       }
+
+      if (count < 1 || count > 20) {
+        resultsToView.innerHTML = '<div class="warning">Количество должно быть от 1 до 20</div>';
+        return;
+
+      }
+
       
 
       let nameData = [], jobData = [], addressData = [], emailData = [];
@@ -42,7 +49,7 @@ const apiKey = '4b915153cc4942e5bf4b3afe21791205';
         const promises = [];
 
         if (userName) promises.push(fetchData('https://api.randommer.io/api/Name?nameType=firstname&quantity=' + count));
-        if (userJob) promises.push(fetchData('https://api.randommer.io/api/BusinessName&cultureCode=en_US&quantity=' + count));
+        if (userJob) promises.push(fetchData('https://api.randommer.io/api/BusinessName&cultureCode=en_US' + count));
         if (userAddress) promises.push(fetchData('https://api.randommer.io/api/Address' + count));
         if (userEmail) promises.push(fetchData('https://api.randommer.io/api/Email'+ count));
 
