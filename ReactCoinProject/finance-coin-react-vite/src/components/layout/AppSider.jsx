@@ -1,16 +1,27 @@
-import { Layout } from 'antd';
+import {Layout, Card, Statistic } from 'antd';
+import { ArrowUpOutlined } from '@ant-design/icons';
 
 const siderStyle = {
-  textAlign: 'center',
+  textAlign: 'left',
   lineHeight: '120px',
   color: '#fff',
-  backgroundColor: '#1677ff',
+  backgroundColor: '#001529',
+  padding: '16px',
 };
 
 export default function AppSider () {
   return (
     <Layout.Sider width="25%" style={siderStyle}>
-      Sider
+      <Card >
+        <Statistic
+          title="Active"
+          value={11.28}
+          precision={2}
+          valueStyle={{ color: '#3f8600' }}
+          prefix={<ArrowUpOutlined />}
+          suffix="%"
+        />
+      </Card>
     </Layout.Sider>
   )
 }
