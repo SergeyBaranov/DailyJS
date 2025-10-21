@@ -1,7 +1,8 @@
 import { createContext } from "react";
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { fetchfakeCrypto, fetchFakeCryptoAssets } from '../api';
 import { percentDifference } from '../utils';
+
 
 const CryptoContext = createContext({
   assets: [],
@@ -23,7 +24,7 @@ export function CryptoContextProvider ({children}) {
 
       setAssets(
         assets.map(asset => {
-          const coin = result.find ((c) => c.id === asset.id)  //получить данные моенты из массива result по asset_id
+          const coin = result.find ((c) => c.id === asset.id);  //получить данные моенты из массива result по asset_id
           return {
             grow: asset.price < coin.price, //был ли рост цены монеты или она упала в стоимости
             growPercent: percentDifference(asset.price, coin.price), //процент роста или падения
@@ -48,3 +49,7 @@ export function CryptoContextProvider ({children}) {
 }
 
 export default CryptoContext;
+
+export function useCrypto() {
+  return useContext(CryptoContext);
+}
