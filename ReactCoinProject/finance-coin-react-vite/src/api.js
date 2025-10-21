@@ -4,7 +4,7 @@ export function fetchfakeCrypto() {
   return new Promise((resolve) => {
     setTimeout(() => {
       resolve(cryptoData);
-    }, 2000);
+    }, 1000);
   });
 }
 
