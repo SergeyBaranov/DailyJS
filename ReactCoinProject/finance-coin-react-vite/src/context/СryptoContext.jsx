@@ -10,15 +10,16 @@ const CryptoContext = createContext({
   loading: false,
 });
 
-export function CryptoContextProvider ({children}) {
+export function CryptoContextProvider({children}) {
 
   const [loading, setLoading] = useState(false); //индикатор загрузки, т.к. загрузка идет 2 секунды
   const [crypto, setCryptoData] = useState([]); //массив с информацией про крус и т.д.
   const [assets, setAssets] = useState([]); // сколько и какая крипта есть у пользователя
 
   useEffect(() => {
-    setLoading(true); //начали загрузку
+    
     async function preload() {
+      setLoading(true); //начали загрузку
       const {result} = await fetchfakeCrypto(); // массив result с информацией про курс  и т.д.
       const assets = await fetchFakeCryptoAssets();
 
